@@ -2,9 +2,15 @@ import { useState } from 'react';
 import Input from '../input/Input';
 import ItemList from '../item-list/ItemList';
 
+
 function ToDoList() {
     const [userInput, setUserInput] = useState("");
     const [toDoItems, setToDoItems] = useState([""]);
+    const [toDoItem, setToDoItem] = useState({
+        id: "",
+        description: "",
+        complete: false
+    })
 
     function handleChange(e) {
         setUserInput(e.target.value);
