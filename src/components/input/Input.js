@@ -1,5 +1,6 @@
 import React from 'react';
 import './Input.css';
+import ToDoList from '../to-do-list/ToDoList';
 
 const Input = (props) => {
     return (
@@ -9,6 +10,7 @@ const Input = (props) => {
                 type="text"
                 name="toDo"
                 id="toDoInput"
+                value={props.todo.task}
                 placeholder="Enter a thing what you need to do..."
                 onChange={e => props.onChange(e)}
             />
