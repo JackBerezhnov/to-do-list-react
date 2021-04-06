@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Item = (props) => {
+const Item = ({ value }) => {
     return(
         <div>
-            <li>{props.value.description}</li>
+            <input type="checkbox"/>
+            <li>{value.description}</li>
             <button>X</button>
         </div>
     );

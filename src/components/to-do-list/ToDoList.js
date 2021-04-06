@@ -23,8 +23,9 @@ function ToDoList() {
 
     function submitUserData(e) {
         e.preventDefault();
-        if(toDoItem.task.trim()) {
+        if(toDoItem.description.trim()) {
             addTodo({ ...toDoItem, id: v4 });
+            setToDoItem({ ...toDoItem, description: "" });
         }
     }
     
