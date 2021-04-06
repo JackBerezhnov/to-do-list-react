@@ -1,11 +1,12 @@
+import React from 'react';
+import Item from "../item/Item";
 
 const ItemList = (props) => {
     return (
         <div>
-        
         {console.log("Data", props)}
             <ul>
-                <li>{props.items}</li>
+                <Item value={props.items}/>
             </ul>
         </div>
     );

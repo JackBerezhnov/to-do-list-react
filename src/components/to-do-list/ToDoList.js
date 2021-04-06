@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../input/Input';
 import ItemList from '../item-list/ItemList';
 
@@ -12,20 +12,27 @@ function ToDoList() {
         complete: false
     })
 
+    useEffect(() => {
+        setToDoItems(toDoItem);
+    }, [toDoItem]);
+
     function handleChange(e) {
         setUserInput(e.target.value);
     }
 
-    function submitUserData() {
-        setToDoItems(userInput);
+    function submitUserData(e) {
+        e.preventDefault();
+        setToDoItem(userInput);
     }
     
     return(
         <div>
             <h1>To Do List!</h1>
-            <Input onChange={handleChange}/>
-            <button value="Send" className="btn success" onClick={submitUserData}>Add</button>
-            <ItemList items={toDoItems}/>
+            <form onSubmit={submitUserData}>
+                <Input onChange={handleChange}/>
+                <button type="submit" className="btn success">Add</button>
+                <ItemList items={toDoItems}/>
+            </form>
             <p>{userInput}</p>
         </div>
     );
