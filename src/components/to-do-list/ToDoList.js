@@ -4,6 +4,7 @@ import ItemList from '../item-list/ItemList';
 import { v4 as uuidv4} from "uuid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import './ToDoList.css';
 
 function ToDoList() {
     const [toDoItems, setToDoItems] = useState([]);
@@ -48,7 +49,7 @@ function ToDoList() {
     }
     
     return(
-        <div>
+        <div className="toDoList">
             <Typography variant="h1">
                 To Do List
             </Typography>
