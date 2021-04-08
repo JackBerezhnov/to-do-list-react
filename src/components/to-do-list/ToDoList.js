@@ -16,6 +16,20 @@ function ToDoList() {
         setToDoItem({ ...toDoItem, description: e.target.value});
     }
 
+    function toggleComplete(id) {
+        setToDoItems(
+            toDoItems.map(todo => {
+                if(todo.id === id) {
+                    return {
+                        ...todo,
+                        complete: !todo.complete
+                    }
+                }
+                return todo;
+            })
+        );
+    }
+
     function addTodo(toDoItem) {
         setToDoItems([toDoItem, ...toDoItems])
     }
@@ -38,7 +52,7 @@ function ToDoList() {
             <form onSubmit={submitUserData}>
                 <Input onChange={handleChange} todo={toDoItem}/>
                 <button type="submit" className="btn success">Add</button>
-                <ItemList items={toDoItems} removeTodo={removeTodo}/>
+                <ItemList items={toDoItems} toggleComplete={toggleComplete} removeTodo={removeTodo}/>
             </form>
         </div>
     );
