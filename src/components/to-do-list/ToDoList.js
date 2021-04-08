@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../input/Input';
 import ItemList from '../item-list/ItemList';
-import {v4 as uuid, v4} from "uuid";
+import { v4 as uuidv4} from "uuid";
 
 
 function ToDoList() {
@@ -24,7 +24,7 @@ function ToDoList() {
     function submitUserData(e) {
         e.preventDefault();
         if(toDoItem.description.trim()) {
-            addTodo({ ...toDoItem, id: v4 });
+            addTodo({ ...toDoItem, id: uuidv4() });
             setToDoItem({ ...toDoItem, description: "" });
         }
     }
