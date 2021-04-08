@@ -1,4 +1,6 @@
 import React from 'react';
+import { Checkbox, IconButton, ListItem, Typography } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
 
 const Item = ({ item, toggleComplete, removeTodo }) => {
     
@@ -11,16 +13,25 @@ const Item = ({ item, toggleComplete, removeTodo }) => {
     }
 
     return(
-        <div style={{ display: "flex" }}>
-            <input type="checkbox" onClick={handleCheckboxClick} />
-            <li
+        <ListItem style={{ display: "flex" }}>
+            <Checkbox
+                checked={item.complete}
+                type="checkbox" 
+                onClick={handleCheckboxClick} 
+            />
+            <Typography
+                variant="body1"
                 style={{
-                    color: "white",
+                    color: "black",
                     textDecoration: item.complete ? "line-through" : null
                 }}
-            >{item.description}</li>
-            <button onClick={handleRemoveClick}>X</button>
-        </div>
+            >
+            {item.description}
+            </Typography>
+            <IconButton onClick={handleRemoveClick}>
+                <CloseIcon />
+            </IconButton>
+        </ListItem>
     );
 }
 

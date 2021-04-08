@@ -1,11 +1,11 @@
 import React from 'react';
-import './Input.css';
+import TextField from "@material-ui/core/TextField";
 
 const Input = (props) => {
     return (
         <div>
             {console.log(props)}
-            <input 
+            <TextField 
                 type="text"
                 name="toDo"
                 id="toDoInput"

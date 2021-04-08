@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Input from '../input/Input';
 import ItemList from '../item-list/ItemList';
 import { v4 as uuidv4} from "uuid";
-
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 function ToDoList() {
     const [toDoItems, setToDoItems] = useState([]);
@@ -48,10 +49,12 @@ function ToDoList() {
     
     return(
         <div>
-            <h1>To Do List!</h1>
+            <Typography variant="h1">
+                To Do List
+            </Typography>
             <form onSubmit={submitUserData}>
                 <Input onChange={handleChange} todo={toDoItem}/>
-                <button type="submit" className="btn success">Add</button>
+                <Button type="submit" className="btn success" variant="contained" color="primary">Add</Button>
                 <ItemList items={toDoItems} toggleComplete={toggleComplete} removeTodo={removeTodo}/>
             </form>
         </div>
