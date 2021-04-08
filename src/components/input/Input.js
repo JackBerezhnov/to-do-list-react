@@ -1,6 +1,5 @@
 import React from 'react';
 import './Input.css';
-import ToDoList from '../to-do-list/ToDoList';
 
 const Input = (props) => {
     return (

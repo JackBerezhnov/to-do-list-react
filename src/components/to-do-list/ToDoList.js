@@ -5,7 +5,6 @@ import { v4 as uuidv4} from "uuid";
 
 
 function ToDoList() {
-    const [userInput, setUserInput] = useState("");
     const [toDoItems, setToDoItems] = useState([]);
     const [toDoItem, setToDoItem] = useState({
         id: "",
@@ -19,6 +18,10 @@ function ToDoList() {
 
     function addTodo(toDoItem) {
         setToDoItems([toDoItem, ...toDoItems])
+    }
+
+    function removeTodo(id) {
+        setToDoItems(toDoItems.filter(todo => todo.id !== id));
     }
 
     function submitUserData(e) {
@@ -35,9 +38,8 @@ function ToDoList() {
             <form onSubmit={submitUserData}>
                 <Input onChange={handleChange} todo={toDoItem}/>
                 <button type="submit" className="btn success">Add</button>
-                <ItemList items={toDoItems}/>
+                <ItemList items={toDoItems} removeTodo={removeTodo}/>
             </form>
-            <p>{userInput}</p>
         </div>
     );
 }

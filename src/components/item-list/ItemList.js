@@ -1,11 +1,11 @@
 import React from 'react';
 import Item from "../item/Item";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, removeTodo }) => {
     return (
         <ul>
             {items.map(todo => (
-                <Item key={todo.id} value={todo}/>
+                <Item key={todo.id} item={todo} removeTodo={removeTodo}/>
             ))}
         </ul>
     );
