@@ -6,3 +6,11 @@
     margin-top: 10px;
     width: 30px;
 }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}

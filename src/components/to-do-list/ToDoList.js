@@ -3,7 +3,6 @@ import Input from '../input/Input';
 import ItemList from '../item-list/ItemList';
 import { v4 as uuidv4} from "uuid";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import './ToDoList.css';
 
 function ToDoList() {
@@ -53,9 +52,8 @@ function ToDoList() {
             <Typography variant="h1">
                 To Do List
             </Typography>
-            <form onSubmit={submitUserData}>
+            <form onSubmit={submitUserData} className="form-container">
                 <Input onChange={handleChange} todo={toDoItem}/>
-                <Button type="submit" className="btn success" variant="contained" color="primary">Add</Button>
                 <ItemList items={toDoItems} toggleComplete={toggleComplete} removeTodo={removeTodo}/>
             </form>
         </div>
